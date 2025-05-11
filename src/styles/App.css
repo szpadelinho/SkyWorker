@@ -1,0 +1,176 @@
+:root {
+  --primary: #1E3F20;
+  --second: #273020;
+  --third: #031D44;
+  --fourth: #345830;
+  --fifth: #6E0D25;
+  --sixth: #ECE4B7;
+  --seventh: #192714;
+  --link: #772fdb;
+  --link-hover: #6a00ff;
+  --nav-link: #ECE4B7;
+  --nav-link-hover: #ffed7d;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body{
+  background: var(--primary);
+}
+
+a{
+  color: var(--link);
+  font-weight: 500;
+  text-decoration: none;
+  text-shadow: black 1px 1px 2px;
+  transition-duration: .2s;
+}
+
+a:hover{
+  color: var(--link-hover);
+  font-weight: 500;
+  text-decoration: none;
+  text-shadow: var(--link) 0 0 2px;
+  transition-duration: .2s;
+}
+
+button{
+  border-radius: 10px;
+  border: 0;
+  background: var(--sixth);
+  color: var(--second);
+  transition-duration: .2s;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+button:hover{
+  border-radius: 10px;
+  border: 0;
+  box-shadow: var(--sixth) 0 0 3px;
+  background: var(--sixth);
+  color: var(--fifth);
+  transition-duration: .2s;
+  cursor: pointer;
+}
+
+input{
+  margin: 10px;
+  height: 25px;
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--second);
+}
+
+button{
+  margin: 10px;
+  height: 50px;
+  width: 300px;
+  padding: 10px;
+}
+
+h1{
+  font-size: 40px;
+  margin: 10px;
+  color: var(--sixth);
+}
+
+p{
+  color: var(--sixth);
+}
+
+.Layout-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.NavBar-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 20vw;
+}
+
+.NavBar-panel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 15vw;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, .2) 5px 5px 25px;
+  background: var(--second);
+}
+
+.NavBar-container a{
+  margin: 15px;
+  font-size: 20px;
+  color: var(--nav-link);
+  transition-duration: .2s;
+}
+
+.NavBar-container a:hover{
+  margin: 15px;
+  font-size: 20px;
+  color: var(--nav-link-hover);
+  text-shadow: var(--nav-link-hover) 0 0 1px;
+  transition-duration: .2s;
+}
+
+.NavBar-container h1{
+  font-size: 40px;
+  margin: 100px 0;
+}
+
+.NavBar-container p{
+  margin: 100px 0;
+}
+
+.Page-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 90vw;
+}
+
+.Page-panel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 80vw;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, .2) 5px 5px 25px;
+  background: var(--seventh);
+}
+
+
+.Auth-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--fourth);
+  padding: 25px 75px 25px 75px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, .2) 5px 5px 25px;
+}
