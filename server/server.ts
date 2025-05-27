@@ -7,6 +7,7 @@ import teamRoutes from "./routes/teams"
 import projectRoutes from "./routes/projects"
 import taskRoutes from "./routes/tasks"
 import commentRoutes from "./routes/comments"
+import authRoutes from './routes/auths';
 
 dotenv.config();
 
@@ -17,6 +18,8 @@ connectToDB()
 
 app.use(cors())
 app.use(express.json())
+
+app.use('/api/auth', authRoutes);
 
 app.use("/api/users", userRoutes)
 app.use("/api/teams", teamRoutes)
