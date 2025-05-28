@@ -5,7 +5,7 @@ export const createUser = async (user: IUser) : Promise<IUser> => {
 }
 
 export const getAllUsers = async (): Promise<IUser[]> => {
-    return UserModel.find({});
+    return UserModel.find({}).populate("team", "name");
 }
 
 export const getUserById = async (id: string): Promise<IUser | null> => {

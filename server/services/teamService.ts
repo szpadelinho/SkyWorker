@@ -5,11 +5,11 @@ export const createTeam = async (team: ITeam) : Promise<ITeam> => {
 }
 
 export const getAllTeams = async (): Promise<ITeam[]> => {
-    return TeamModel.find().populate("members", "name email");
+    return TeamModel.find().populate("members", "name surname email");
 }
 
 export const getTeamById = async (id: string) : Promise<ITeam | null> => {
-    return TeamModel.findById(id).populate('members', 'name email').populate('projects', 'name')
+    return TeamModel.findById(id).populate('members', 'name surname email').populate('projects', 'name')
 }
 
 export const updateTeam = async (id: string, team: Partial<ITeam>) : Promise<ITeam | null> => {

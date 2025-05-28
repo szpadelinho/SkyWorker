@@ -2,7 +2,7 @@ import mongoose, { Schema, Document } from 'mongoose'
 
 export interface ITeam extends Document {
     name: string,
-    members: mongoose.Types.ObjectId[]
+    members: mongoose.Types.ObjectId
 }
 
 const TeamSchema = new Schema({

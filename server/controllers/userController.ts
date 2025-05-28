@@ -14,6 +14,7 @@ export const createUserHandler = async (req: Request, res: Response) => {
 export const getAllUsersHandler = async (req: Request, res: Response) => {
     try{
         const users = await userService.getAllUsers()
+        console.log(JSON.stringify(users, null, 2));
         res.status(200).json(users)
     }
     catch(err){

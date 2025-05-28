@@ -6,7 +6,7 @@ export interface IUser extends Document {
     surname: string
     email: string
     password: string
-    team: mongoose.Types.ObjectId[]
+    team: mongoose.Types.ObjectId
     role: 'Admin' | 'User'
     comparePassword(candidatePassword: string): Promise<boolean>
 }

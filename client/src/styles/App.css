@@ -6,10 +6,13 @@
   --fifth: #6E0D25;
   --sixth: #ECE4B7;
   --seventh: #192714;
+  --eigth: #142314;
   --link: #772fdb;
   --link-hover: #6a00ff;
   --nav-link: #ECE4B7;
   --nav-link-hover: #ffed7d;
+  --model-name: #ffc9a1;
+  --submodel-name: #be9678;
 }
 
 #root {
@@ -163,6 +166,46 @@ p{
   background: var(--seventh);
 }
 
+ul{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  height: 60%;
+}
+
+ul li{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  background-color: var(--eigth);
+  width: 90%;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, .2) 5px 5px 25px;
+}
+
+ul h6{
+  color: var(--model-name);
+  display: inline;
+  font-size: 25px;
+  margin: 0 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+ul h5{
+  color: var(--submodel-name);
+  display: inline;
+  font-size: 20px;
+  margin: 0 15px;
+  justify-content: center;
+  align-items: center;
+}
 
 .Auth-container{
   display: flex;

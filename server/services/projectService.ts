@@ -5,7 +5,7 @@ export const createProject = async (project: IProject): Promise<IProject> => {
 }
 
 export const getAllProjects = async (): Promise<IProject[]> => {
-    return ProjectModel.find().populate('team', 'name').populate('members', 'name email')
+    return ProjectModel.find().populate('team', 'name').populate('members', 'name surname email')
 }
 
 export const getProjectById = async (id: string): Promise<IProject | null> => {

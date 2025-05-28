@@ -5,11 +5,11 @@ export const createTask = async (data: ITask): Promise<ITask> => {
 }
 
 export const getAllTasks = async (): Promise<ITask[]> => {
-    return TaskModel.find().populate('project', 'name').populate('assignee', 'name email');
+    return TaskModel.find().populate('project', 'name').populate('user', 'name surname email');
 }
 
 export const getTaskById = async (id: string): Promise<ITask | null> => {
-    return TaskModel.findById(id).populate('project', 'name').populate('assignee', 'name email').populate('comments', 'text');
+    return TaskModel.findById(id).populate('project', 'name').populate('user', 'name surname email').populate('comments', 'text');
 }
 
 export const updateTask = async (id: string, data: Partial<ITask>): Promise<ITask | null> => {
