@@ -38,8 +38,7 @@ const UsersPage: React.FC = () => {
                     {users.map((user) => (
                         <li key={user._id}>
                             <h6>{user.name} {user.surname}</h6>
-                            <h5>Team: {user.team?.name || "—"}</h5>
-                            <h5>Role: {user.role}</h5>
+                            <h5>Team: {user.team?.name || "Jobless"}</h5>
                         </li>
                     ))}
                 </ul>

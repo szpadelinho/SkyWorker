@@ -41,7 +41,8 @@ const TasksPage: React.FC = () => {
                             <h6>{task.name}</h6>
                             <h5>Assigned to: {task.user?.name} {task.user?.surname}</h5>
                             <h5>Project: {task.project?.name}</h5>
-                            <h5>Status: {task.status} | Priority: {task.priority}</h5>
+                            <h5>Status: {task.status}</h5>
+                            <h5>Priority: {task.priority}</h5>
                         </li>
                     ))}
                 </ul>
