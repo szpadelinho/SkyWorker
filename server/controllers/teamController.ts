@@ -1,9 +1,20 @@
 import { Request, Response } from 'express'
 import * as teamService from '../services/teamService'
+import * as userService from '../services/userService'
+import mongoose from "mongoose";
 
 export const createTeamHandler = async (req: Request, res: Response) => {
     try {
-        const newTeam = await teamService.createTeam(req.body)
+        const { name, members } = req.body
+
+        const newTeam = await teamService.createTeam({name, members})
+
+        await Promise.all(
+            members.map((userId: string) =>
+                userService.updateUser(userId, { team: newTeam._id as mongoose.Types.ObjectId })
+            )
+        )
+
         res.status(201).json(newTeam)
     } catch (err) {
         res.status(500).json(err)

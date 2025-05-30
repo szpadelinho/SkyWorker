@@ -12,6 +12,10 @@ import TasksPage from "./components/TasksPage.tsx";
 import CommentsPage from "./components/CommentsPage.tsx";
 import DashboardPage from "./components/DashboardPage.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
+import CreateTeamsPage from "./components/CreateTeamsPage.tsx";
+import CreateProjectsPage from "./components/CreateProjectsPage.tsx";
+import CreateCommentsPage from "./components/CreateCommentsPage.tsx";
+import CreateTasksPage from "./components/CreateTasksPage.tsx";
 
 const App: React.FC = () => {
 
@@ -25,10 +29,14 @@ const App: React.FC = () => {
                     <Route index element={<HomePage/>}/>
                     <Route path="dashboard" element={<DashboardPage/>}/>
                     <Route path="teams" element={<TeamsPage/>}/>
+                    <Route path="/teams/new" element={<CreateTeamsPage/>}/>
                     <Route path="projects" element={<ProjectsPage/>}/>
+                    <Route path="/projects/new" element={<CreateProjectsPage/>}/>
                     <Route path="users" element={<UsersPage/>}/>
                     <Route path="tasks" element={<TasksPage/>}/>
+                    <Route path="/tasks/new" element={<CreateTasksPage/>}/>
                     <Route path="comments" element={<CommentsPage/>}/>
+                    <Route path="/comments/new" element={<CreateCommentsPage/>}/>
                 </Route>
             </Route>
         </Routes>

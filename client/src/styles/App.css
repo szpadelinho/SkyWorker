@@ -74,6 +74,26 @@ input{
   background: var(--second);
 }
 
+select{
+  margin: 10px 0;
+  height: 50px;
+  width: 320px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--second);
+}
+
+textarea{
+  margin: 10px 0;
+  height: 50px;
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  background: var(--second);
+}
+
 button{
   margin: 10px;
   height: 50px;
@@ -221,6 +241,11 @@ ul h5{
 form{
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+#dashboard-h1{
+  margin: 125px 0 25px 0;
 }
 
 .Dashboard-container{
@@ -229,7 +254,6 @@ form{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 }
 
 .Dashboard-columns{
@@ -245,6 +269,17 @@ form{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 80%;
+}
+
+.Dashboard-column li{
+  color: var(--model-name);
+  font-weight: 600;
+  width: 80%;
+}
+
+.Dashboard-column ul{
+  width: 80%;
 }
 
 .Kanban-container{
@@ -281,6 +316,8 @@ form{
   box-shadow: rgba(0, 0, 0, .2) 5px 5px 25px;
   border-radius: 5px;
   padding: 5px 0;
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .kanban-task.to-do{
@@ -308,4 +345,26 @@ form{
 .kanban-task.high{
   color: var(--fifth);
   text-shadow: rgba(255, 0, 0, 0.2) 5px 5px 25px;
+}
+
+h2, h3{
+  color: var(--sixth);
+}
+
+.Page-header{
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+}
+
+.add-button{
+  width: 100px;
+  position: absolute;
+  top: 17.2%;
+  right: 100px;
+}
+
+.Page-header h1{
+  margin-left: auto;
+  margin-right: auto;
 }

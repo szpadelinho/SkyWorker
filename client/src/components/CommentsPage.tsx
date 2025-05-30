@@ -1,6 +1,7 @@
     import React, { useEffect, useState } from "react"
     import "../styles/App.css"
     import axios from "axios"
+    import {Link} from "react-router-dom";
 
     interface Comment {
         _id: string
@@ -31,7 +32,12 @@
         return (
             <div className="Page-container">
                 <div className="Page-panel">
-                    <h1>Comments</h1>
+                    <div className="Page-header">
+                        <h1>Comments</h1>
+                        <Link to={"/comments/new"}>
+                            <button className={"add-button"}>Add new</button>
+                        </Link>
+                    </div>
                     <ul>
                         {comments.map((comment) => (
                             <li key={comment._id}>

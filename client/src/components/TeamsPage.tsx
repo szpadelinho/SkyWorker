@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import '../styles/App.css'
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 interface Team {
     _id: string
@@ -30,7 +31,12 @@ const TeamsPage : React.FC = () => {
     return(
         <div className={"Page-container"}>
             <div className={"Page-panel"}>
-                <h1>Teams</h1>
+                <div className="Page-header">
+                    <h1>Teams</h1>
+                    <Link to={"/teams/new"}>
+                        <button className={"add-button"}>Add new</button>
+                    </Link>
+                </div>
                 <ul>
                     {teams.map((team) => (
                         <li key={team._id}>

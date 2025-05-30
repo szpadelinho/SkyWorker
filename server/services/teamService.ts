@@ -1,6 +1,6 @@
 import TeamModel, {ITeam} from "../models/team"
 
-export const createTeam = async (team: ITeam) : Promise<ITeam> => {
+export const createTeam = async (team: {name: string; members: string[]}) => {
     return await TeamModel.create(team)
 }
 
@@ -9,7 +9,7 @@ export const getAllTeams = async (): Promise<ITeam[]> => {
 }
 
 export const getTeamById = async (id: string) : Promise<ITeam | null> => {
-    return TeamModel.findById(id).populate('members', 'name surname email').populate('projects', 'name')
+    return TeamModel.findById(id).populate('members', 'name surname email').populate('projects', 'name description')
 }
 
 export const updateTeam = async (id: string, team: Partial<ITeam>) : Promise<ITeam | null> => {

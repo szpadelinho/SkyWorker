@@ -103,7 +103,7 @@ const DashboardPage: React.FC = () => {
     return (
         <div className="Page-container">
             <div className="Page-panel">
-                <h1>{user ? `Welcome, ${user.name} ${user.surname}` : "Hello, Akiyama"}</h1>
+                <h1 id="dashboard-h1">{user ? `Welcome, ${user.name} ${user.surname}` : "Hello, Akiyama"}</h1>
                 <div className="Dashboard-container">
                     <div className="Kanban-container">
                         <h2>Kanban</h2>
@@ -153,7 +153,9 @@ const DashboardPage: React.FC = () => {
                         </div>
                         <div className="Dashboard-column">
                             <h2>Your Team:</h2>
-                            <li>{team ? team.name : "No team assigned"}</li>
+                            <ul>
+                                <li>{team ? team.name : "No team assigned"}</li>
+                            </ul>
                         </div>
                     </div>
                 </div>

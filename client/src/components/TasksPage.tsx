@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "../styles/App.css"
 import axios from "axios"
+import {Link} from "react-router-dom";
 
 interface Task {
     _id: string
@@ -34,7 +35,12 @@ const TasksPage: React.FC = () => {
     return (
         <div className="Page-container">
             <div className="Page-panel">
-                <h1>Tasks</h1>
+                <div className="Page-header">
+                    <h1>Tasks</h1>
+                    <Link to={"/tasks/new"}>
+                        <button className={"add-button"}>Add new</button>
+                    </Link>
+                </div>
                 <ul>
                     {tasks.map((task) => (
                         <li key={task._id}>

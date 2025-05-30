@@ -33,7 +33,9 @@ const UsersPage: React.FC = () => {
     return (
         <div className="Page-container">
             <div className="Page-panel">
-                <h1>Users</h1>
+                <div className="Page-header">
+                    <h1>Users</h1>
+                </div>
                 <ul>
                     {users.map((user) => (
                         <li key={user._id}>
