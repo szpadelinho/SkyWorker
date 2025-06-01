@@ -32,7 +32,7 @@ const CreateTeamsPage: React.FC = () => {
                 members: selectedMembers
             })
 
-            navigate("/team")
+            navigate("/teams")
         } catch (error) {
             console.error("Failed to create team:", error)
         }

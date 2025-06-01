@@ -207,6 +207,16 @@ li{
   border-radius: 10px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, .2) 5px 5px 25px;
+  margin: 10px 0;
+}
+
+li button{
+  width: 80px;
+  height: 40px;
+  background-color: var(--fifth);
+  margin: 0;
+  position: absolute;
+  right: 150px;
 }
 
 ul h6{
@@ -316,7 +326,7 @@ form{
   box-shadow: rgba(0, 0, 0, .2) 5px 5px 25px;
   border-radius: 5px;
   padding: 5px 0;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 12px;
 }
 
@@ -329,7 +339,7 @@ form{
 }
 
 .kanban-task.done{
-  background-color: var(--fifth);
+  background-color: var(--link);
 }
 
 .kanban-task.low{

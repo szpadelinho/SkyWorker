@@ -1,6 +1,6 @@
 import TaskModel, { ITask } from '../models/task';
 
-export const createTask = async (data: ITask): Promise<ITask> => {
+export const createTask = async (data: Partial<ITask>): Promise<ITask> => {
     return await TaskModel.create(data)
 }
 

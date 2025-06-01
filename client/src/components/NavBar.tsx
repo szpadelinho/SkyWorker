@@ -1,10 +1,14 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { Link, useNavigate } from "react-router-dom"
 import '../styles/App.css'
 
 const NavBar: React.FC = () => {
     const navigate = useNavigate()
+    const [userRole, setUserRole] = useState<string | null>(null)
 
+    useEffect(() => {
+        setUserRole(localStorage.getItem("role"))
+    }, []);
     const handleLogout = () => {
         localStorage.removeItem('jwtToken')
         localStorage.removeItem('user')
@@ -14,7 +18,7 @@ const NavBar: React.FC = () => {
     return (
         <nav className={"NavBar-container"}>
             <nav className={"NavBar-panel"}>
-                <h1>SkyWorker</h1>
+                {userRole === "admin" ? (<h1>SkyAdmin</h1>) : (<h1>SkyWorker</h1>)}
                 <Link to='/dashboard'>My dashboard</Link>
                 <Link to='/teams'>Teams</Link>
                 <Link to='/projects'>Projects</Link>

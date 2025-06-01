@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import '../styles/App.css'
 import axios from "axios"
+import {useNavigate} from "react-router-dom";
 
 const CreateTasksPage : React.FC = () => {
     const [name, setName] = useState('')
@@ -9,6 +10,8 @@ const CreateTasksPage : React.FC = () => {
     const [projects, setProjects] = useState<any[]>([])
     const [priority, setPriority] = useState<'Low' | 'Medium' | 'High'>('Low')
     const [status, setStatus] = useState<'To do' | 'In progress' | 'Done'>('To do')
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProjects = async () => {
@@ -20,20 +23,24 @@ const CreateTasksPage : React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
+        try {
+            const token = localStorage.getItem('jwtToken')
+            const userId = JSON.parse(atob(token!.split('.')[1])).userId
 
-        const token = localStorage.getItem('jwtToken')
-        const userId = JSON.parse(atob(token!.split('.')[1])).id
+            await axios.post('http://localhost:5000/api/tasks', {
+                name,
+                description,
+                project,
+                user: userId,
+                priority,
+                status,
+            })
 
-        await axios.post('http://localhost:5000/api/tasks', {
-            name,
-            description,
-            project,
-            user: userId,
-            priority,
-            status,
-        })
-
-        console.log('Task created!')
+            console.log('Task created!')
+            navigate('/tasks')
+        } catch (err: any) {
+            console.error('Error creating task:', err.response?.data || err.message)
+        }
     }
 
     return(

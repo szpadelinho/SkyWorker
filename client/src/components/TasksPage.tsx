@@ -15,11 +15,13 @@ interface Task {
 
 const TasksPage: React.FC = () => {
     const [tasks, setTasks] = useState<Task[]>([])
+    const [userRole, setUserRole] = useState<string | null>(null)
 
     useEffect(() => {
         const fetchTasks = async () => {
             try {
                 const token = localStorage.getItem("jwtToken")
+                setUserRole(localStorage.getItem("role"))
                 const response = await axios.get("http://localhost:5000/api/tasks", {
                     headers: { Authorization: `Bearer ${token}` },
                 })
@@ -31,6 +33,18 @@ const TasksPage: React.FC = () => {
 
         fetchTasks()
     }, [])
+
+    const handleDelete = async (id: string) => {
+        try {
+            const token = localStorage.getItem("jwtToken")
+            await axios.delete(`http://localhost:5000/api/tasks/${id}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            })
+            setTasks(prev => prev.filter(task => task._id !== id))
+        } catch (error) {
+            console.error("Error deleting task:", error)
+        }
+    }
 
     return (
         <div className="Page-container">
@@ -49,6 +63,9 @@ const TasksPage: React.FC = () => {
                             <h5>Project: {task.project?.name}</h5>
                             <h5>Status: {task.status}</h5>
                             <h5>Priority: {task.priority}</h5>
+                            {userRole === "admin" && (
+                                <button onClick={() => handleDelete(task._id)}>Delete</button>
+                            )}
                         </li>
                     ))}
                 </ul>

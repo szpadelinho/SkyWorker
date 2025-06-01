@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import '../styles/App.css'
 import axios from "axios"
+import {useNavigate} from "react-router-dom";
 
 const CreateProjectsPage : React.FC = () => {
     const [name, setName] = useState('')
@@ -8,6 +9,8 @@ const CreateProjectsPage : React.FC = () => {
     const [team, setTeam] = useState('')
     const [members, setMembers] = useState<string[]>([])
     const [teamMembers, setTeamMembers] = useState<any[]>([])
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchTeam = async () => {
@@ -36,6 +39,7 @@ const CreateProjectsPage : React.FC = () => {
         })
 
         console.log('Project created!')
+        navigate('/projects')
     }
 
     return (

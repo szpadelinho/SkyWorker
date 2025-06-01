@@ -23,6 +23,7 @@ const LoginPage: React.FC = () => {
             
             localStorage.setItem('jwtToken', token)
             localStorage.setItem('user', JSON.stringify(user))
+            localStorage.setItem('role', user.role.toLowerCase())
             
             navigate('/dashboard')
         } catch (err: any) {

@@ -12,11 +12,14 @@
 
     const CommentsPage: React.FC = () => {
         const [comments, setComments] = useState<Comment[]>([])
+        const [userRole, setUserRole] = useState<string | null>(null)
 
         useEffect(() => {
             const fetchComments = async () => {
                 try {
                     const token = localStorage.getItem("jwtToken")
+                    setUserRole(localStorage.getItem("role"))
+
                     const response = await axios.get("http://localhost:5000/api/comments", {
                         headers: { Authorization: `Bearer ${token}` },
                     })
@@ -28,6 +31,18 @@
 
             fetchComments()
         }, [])
+
+        const handleDelete = async (id: string) => {
+            try {
+                const token = localStorage.getItem("jwtToken")
+                await axios.delete(`http://localhost:5000/api/comments/${id}`, {
+                    headers: { Authorization: `Bearer ${token}` },
+                })
+                setComments(prev => prev.filter(comment => comment._id !== id))
+            } catch (error) {
+                console.error("Error deleting comment:", error)
+            }
+        }
 
         return (
             <div className="Page-container">
@@ -44,6 +59,9 @@
                                 <h6>{comment.text}</h6>
                                 <h5>{comment.author?.name} {comment.author?.surname}</h5>
                                 <h5>Task: {comment.task?.name}</h5>
+                                {userRole === "admin" && (
+                                    <button onClick={() => handleDelete(comment._id)}>Delete</button>
+                                )}
                             </li>
                         ))}
                     </ul>

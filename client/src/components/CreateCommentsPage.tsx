@@ -1,16 +1,19 @@
 import React, {useEffect, useState} from "react"
 import '../styles/App.css'
 import axios from "axios"
+import {useNavigate} from "react-router-dom";
 
 const CreateCommentsPage : React.FC = () => {
     const [text, setText] = useState('')
     const [task, setTask] = useState('')
     const [tasks, setTasks] = useState<any[]>([])
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         const fetchTasks = async () => {
             const token = localStorage.getItem('jwtToken')
-            const userId = JSON.parse(atob(token!.split('.')[1])).id
+            const userId = JSON.parse(atob(token!.split('.')[1])).userId
 
             const res = await axios.get('http://localhost:5000/api/tasks')
             const userTasks = res.data.filter((t: any) => t.user._id === userId)
@@ -23,7 +26,7 @@ const CreateCommentsPage : React.FC = () => {
         e.preventDefault()
 
         const token = localStorage.getItem('jwtToken')
-        const author = JSON.parse(atob(token!.split('.')[1])).id
+        const author = JSON.parse(atob(token!.split('.')[1])).userId
 
         await axios.post('http://localhost:5000/api/comments', {
             text,
@@ -32,6 +35,7 @@ const CreateCommentsPage : React.FC = () => {
         })
 
         console.log('Comment created!')
+        navigate('/comments')
     }
 
     return(
